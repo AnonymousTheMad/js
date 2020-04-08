@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Array and object</title>
+    </head>
+    <body>
+       <script>
+           let data = [{principal: "2500", time: "1.8"}, {principal: "1000", time: "5"}, {principal: "3000", time: "1"}, {principal: "2000", time: "3"}]
+           console.log(data)
+       </script> 
+
+       <script>
+           function interestCalculator (obj_arr) {
+               let interestData = [];
+               let rate = 1;
+               for(let i = 0; i < obj_arr.length; i++){
+                   if (obj_arr[i].principal >= 2500 && obj_arr[i].time > 1
+                   && obj_arr[i].time < 3) {
+                       rate = 3;
+                       
+                   } if (obj_arr[i].principal >= 2500 && obj_arr[i].time >= 3
+                   && obj_arr[i].time < 4) {
+                       rate = 4;
+                       
+                   } if (obj_arr[i].principal < 2500 || obj_arr[i].time <= 1) {
+                       rate = 2;
+                       
+                   }
+                   let interest = (obj_arr[i].principal * rate * obj_arr[i].time)/ 100;
+                   obj_arr[i].rate = rate;
+                   obj_arr[i].interest = interest;
+
+                   interestData.push(obj_arr); 
+               }        
+               console.log('Interest Data: ', interestData);
+               return interestData;
+               
+           }
+           interestCalculator(data)
+        </script>
+    </body>
+</html>
